@@ -1,28 +1,22 @@
-package com.prueba.tecnica.canvia.admincore.models;
+package com.prueba.tecnica.canvia.admincore.dtos;
 
-import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-@Entity
-@Table(name = "clientes")
-public class Cliente {
+public class ClienteDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nombres")
+    @NotEmpty(message = "El nombre no debe ir vacio")
     private String nombres;
 
-    @Column(name = "apellidos")
     private String apellidos;
 
-    @Column(name = "dni")
+    @Size(min = 8, max = 8, message = "DNI debe tener 8 caracteres")
     private String dni;
 
-    @Column(name = "correo")
+    @Email(message = "Formato email invalido")
     private String correo;
 
     public Integer getId() {
@@ -63,16 +57,5 @@ public class Cliente {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "id='" + id + '\'' +
-                ", nombres='" + nombres + '\'' +
-                ", apellidos='" + apellidos + '\'' +
-                ", dni='" + dni + '\'' +
-                ", correo='" + correo + '\'' +
-                '}';
     }
 }
