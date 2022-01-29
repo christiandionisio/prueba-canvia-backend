@@ -1,23 +1,18 @@
-package com.prueba.tecnica.canvia.admincore.models;
+package com.prueba.tecnica.canvia.admincore.dtos;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
-@Entity
-@Table(name = "item_detalle")
-public class ItemDetalle {
+public class ItemDetalleDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nombre")
+    @NotEmpty(message = "El nombre no debe ir vacio")
     private String nombre;
 
-    @Column(name = "tipo")
+    @NotEmpty(message = "El tipo no debe ir vacio")
     private String tipo;
 
-    @Column(name = "precio")
+    @NotEmpty(message = "El precio no debe ir vacio")
     private Double precio;
 
     public Integer getId() {
@@ -54,8 +49,9 @@ public class ItemDetalle {
 
     @Override
     public String toString() {
-        return "ItemDetalle{" +
-                "nombre='" + nombre + '\'' +
+        return "ItemDetalleDTO{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", precio=" + precio +
                 '}';
