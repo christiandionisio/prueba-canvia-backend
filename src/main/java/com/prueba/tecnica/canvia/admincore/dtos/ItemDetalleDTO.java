@@ -1,6 +1,7 @@
 package com.prueba.tecnica.canvia.admincore.dtos;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 public class ItemDetalleDTO {
 
@@ -12,7 +13,7 @@ public class ItemDetalleDTO {
     @NotEmpty(message = "El tipo no debe ir vacio")
     private String tipo;
 
-    @NotEmpty(message = "El precio no debe ir vacio")
+    @NotNull(message = "El precio es obligatorio")
     private Double precio;
 
     public Integer getId() {

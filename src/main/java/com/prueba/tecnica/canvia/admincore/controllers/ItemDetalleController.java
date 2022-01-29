@@ -59,7 +59,7 @@ public class ItemDetalleController {
         LOGGER.info("Registro item OK");
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}").buildAndExpand(itemDetalleBD.getId()).toUri();
+                .path("/{id}").buildAndExpand(itemDetalleBD.getIdItem()).toUri();
         LOGGER.info("Setear URI Location {}", location);
 
         return ResponseEntity.created(location).build();

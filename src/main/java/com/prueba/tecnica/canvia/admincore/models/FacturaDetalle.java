@@ -18,6 +18,9 @@ public class FacturaDetalle {
     @JoinColumn(name = "id_item", nullable = false, foreignKey = @ForeignKey(name = "FK_CF_item"))
     private ItemDetalle itemDetalle;
 
+    @Column(name = "cantidad")
+    private Integer cantidad;
+
     public Integer getId() {
         return id;
     }
@@ -42,12 +45,21 @@ public class FacturaDetalle {
         this.itemDetalle = itemDetalle;
     }
 
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
     @Override
     public String toString() {
         return "FacturaDetalle{" +
                 "id=" + id +
                 ", factura=" + factura +
                 ", itemDetalle=" + itemDetalle +
+                ", cantidad=" + cantidad +
                 '}';
     }
 }

@@ -59,7 +59,7 @@ public class ClienteController {
         LOGGER.info("Registro cliente OK");
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}").buildAndExpand(clienteBD.getId()).toUri();
+                .path("/{id}").buildAndExpand(clienteBD.getIdCliente()).toUri();
         LOGGER.info("Setear URI Location {}", location);
 
         return ResponseEntity.created(location).build();

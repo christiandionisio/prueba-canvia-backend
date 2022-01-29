@@ -1,5 +1,6 @@
 package com.prueba.tecnica.canvia.admincore.exceptions;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,13 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
     public final ResponseEntity<ExceptionResponse> manejarTodasExcepciones(Exception ex, WebRequest request){
         ExceptionResponse er = new ExceptionResponse(LocalDateTime.now(), ex.getMessage(),
                 request.getDescription(false), null);
+        return new ResponseEntity<>(er, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public final ResponseEntity<ExceptionResponse> handleContraintException(ConstraintViolationException ex, WebRequest request){
+        ExceptionResponse er = new ExceptionResponse(LocalDateTime.now(), ex.getMessage(),
+                "No existe el item foraneo", null);
         return new ResponseEntity<>(er, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 

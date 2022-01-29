@@ -1,6 +1,6 @@
 package com.prueba.tecnica.canvia.admincore.services.interfaces;
 
-import com.prueba.tecnica.canvia.admincore.models.ClienteFactura;
+public interface IClienteFacturaService {
 
-public interface IClienteFacturaService extends ICrudGenericService<ClienteFactura, Integer> {
+    Integer registrar(Integer idCliente, Integer idFactura);
 }

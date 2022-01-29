@@ -1,9 +1,6 @@
 package com.prueba.tecnica.canvia.admincore.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "clientes")
@@ -11,7 +8,7 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idCliente;
 
     @Column(name = "nombres")
     private String nombres;
@@ -25,12 +22,12 @@ public class Cliente {
     @Column(name = "correo")
     private String correo;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdCliente() {
+        return idCliente;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getNombres() {
@@ -68,7 +65,7 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" +
-                "id='" + id + '\'' +
+                "idCliente=" + idCliente +
                 ", nombres='" + nombres + '\'' +
                 ", apellidos='" + apellidos + '\'' +
                 ", dni='" + dni + '\'' +

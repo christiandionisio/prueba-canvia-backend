@@ -9,7 +9,7 @@ public class ItemDetalle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idItem;
 
     @Column(name = "nombre")
     private String nombre;
@@ -20,12 +20,12 @@ public class ItemDetalle {
     @Column(name = "precio")
     private Double precio;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdItem() {
+        return idItem;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdItem(Integer idItem) {
+        this.idItem = idItem;
     }
 
     public String getNombre() {
@@ -55,7 +55,8 @@ public class ItemDetalle {
     @Override
     public String toString() {
         return "ItemDetalle{" +
-                "nombre='" + nombre + '\'' +
+                "idItem=" + idItem +
+                ", nombre='" + nombre + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", precio=" + precio +
                 '}';

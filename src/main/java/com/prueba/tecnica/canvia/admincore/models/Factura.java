@@ -9,22 +9,22 @@ public class Factura {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idFactura;
 
-    @NotEmpty(message = "La fecha de emisión no debe ir vacia")
+    // @NotEmpty(message = "La fecha de emisión no debe ir vacia")
     @Column(name = "fecha_emision")
     private String fechaEmision;
 
-    @NotEmpty(message = "El estado no debe ir vacio")
+    // @NotEmpty(message = "El estado no debe ir vacio")
     @Column(name = "estado")
     private String estado;
 
     public Integer getIdFactura() {
-        return id;
+        return idFactura;
     }
 
-    public void setIdFactura(Integer id) {
-        this.id = id;
+    public void setIdFactura(Integer idFactura) {
+        this.idFactura = idFactura;
     }
 
     public String getFechaEmision() {
@@ -46,7 +46,7 @@ public class Factura {
     @Override
     public String toString() {
         return "Factura{" +
-                "idFactura='" + id + '\'' +
+                "idFactura=" + idFactura +
                 ", fechaEmision='" + fechaEmision + '\'' +
                 ", estado='" + estado + '\'' +
                 '}';
