@@ -1,7 +1,5 @@
 package com.prueba.tecnica.canvia.admincore.models;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
