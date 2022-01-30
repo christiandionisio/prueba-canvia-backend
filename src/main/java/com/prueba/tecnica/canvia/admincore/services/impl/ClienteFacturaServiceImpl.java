@@ -1,5 +1,6 @@
 package com.prueba.tecnica.canvia.admincore.services.impl;
 
+import com.prueba.tecnica.canvia.admincore.models.ClienteFactura;
 import com.prueba.tecnica.canvia.admincore.repo.IClienteFacturaRepo;
 import com.prueba.tecnica.canvia.admincore.services.interfaces.IClienteFacturaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,5 +15,10 @@ public class ClienteFacturaServiceImpl implements IClienteFacturaService {
     @Override
     public Integer registrar(Integer idCliente, Integer idFactura) {
         return repo.registrar(idCliente, idFactura);
+    }
+
+    @Override
+    public ClienteFactura buscarPorFactura(Integer idFactura) {
+        return repo.buscarPorFactura(idFactura);
     }
 }

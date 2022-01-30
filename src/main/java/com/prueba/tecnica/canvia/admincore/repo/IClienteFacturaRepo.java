@@ -12,4 +12,7 @@ public interface IClienteFacturaRepo extends IGenericRepo<ClienteFactura, Intege
     @Modifying
     @Query(value = "INSERT INTO cliente_factura(id_cliente, id_factura) VALUES (:idCliente, :idFactura)", nativeQuery = true)
     Integer registrar(@Param("idCliente") Integer idCliente, @Param("idFactura") Integer idFactura);
+
+    @Query("FROM ClienteFactura c WHERE c.factura.idFactura = :idFactura")
+    ClienteFactura buscarPorFactura(@Param("idFactura") Integer idFactura);
 }
