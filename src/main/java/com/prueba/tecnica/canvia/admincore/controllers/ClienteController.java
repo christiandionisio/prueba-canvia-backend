@@ -48,6 +48,19 @@ public class ClienteController {
         return ResponseEntity.ok().body(clienteBD);
     }
 
+    @GetMapping("/buscarPorDni/{dni}")
+    public ResponseEntity<List<Cliente>> buscarPorDni(@PathVariable String dni) {
+        LOGGER.info("Inicio de buscar cliente por ID");
+        List<Cliente> clienteListBD = service.buscarPorDni(dni);
+
+        if (clienteListBD == null) {
+            LOGGER.info("No se encontro clientes");
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok().body(clienteListBD);
+    }
+
     @PostMapping
     public ResponseEntity<Cliente> registrar(@RequestBody @Valid ClienteDTO clienteDTO) {
         LOGGER.info("Inicio de registro de cliente");
@@ -72,7 +85,7 @@ public class ClienteController {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
-        Cliente clienteBD = service.obtenerPorId(clienteDTO.getId());
+        Cliente clienteBD = service.obtenerPorId(clienteDTO.getIdCliente());
         if (clienteBD == null) {
             LOGGER.info("No se encontro el cliente para actualizar");
             return ResponseEntity.notFound().build();

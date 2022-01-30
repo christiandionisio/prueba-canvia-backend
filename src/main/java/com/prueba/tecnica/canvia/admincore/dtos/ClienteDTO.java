@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 
 public class ClienteDTO {
 
-    private Integer id;
+    private Integer idCliente;
 
     @NotEmpty(message = "El nombre no debe ir vacio")
     private String nombres;
@@ -19,12 +19,12 @@ public class ClienteDTO {
     @Email(message = "Formato email invalido")
     private String correo;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdCliente() {
+        return idCliente;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getNombres() {

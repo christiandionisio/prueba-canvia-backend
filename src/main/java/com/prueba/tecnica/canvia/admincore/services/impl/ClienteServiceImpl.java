@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClienteServiceImpl extends CrudGenericServiceImpl<Cliente, Integer> implements IClienteService {
 
@@ -23,5 +25,10 @@ public class ClienteServiceImpl extends CrudGenericServiceImpl<Cliente, Integer>
     @Override
     public Page<Cliente> listarPageable(Pageable pageable) {
         return repo.findAll(pageable);
+    }
+
+    @Override
+    public List<Cliente> buscarPorDni(String dni) {
+        return repo.buscarPorDni(dni);
     }
 }

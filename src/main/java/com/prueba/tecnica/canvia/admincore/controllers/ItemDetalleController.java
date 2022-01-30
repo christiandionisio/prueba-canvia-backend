@@ -48,6 +48,19 @@ public class ItemDetalleController {
         return ResponseEntity.ok().body(itemBD);
     }
 
+    @GetMapping("/buscarPorNombre/{nombre}")
+    public ResponseEntity<List<ItemDetalle>> buscarPorId(@PathVariable String nombre) {
+        LOGGER.info("Inicio de buscar items por nombre");
+        List<ItemDetalle> itemsBD = service.buscarPorNombre(nombre);
+
+        if (itemsBD == null) {
+            LOGGER.info("No se encontro items");
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok().body(itemsBD);
+    }
+
     @PostMapping
     public ResponseEntity<ItemDetalle> registrar(@RequestBody @Valid ItemDetalleDTO itemDetalleDTO) {
         LOGGER.info("Inicio de registro de item");
@@ -72,7 +85,7 @@ public class ItemDetalleController {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
-        ItemDetalle itemDetalleBD = service.obtenerPorId(itemDetalleDTO.getId());
+        ItemDetalle itemDetalleBD = service.obtenerPorId(itemDetalleDTO.getIdItem());
         if (itemDetalleBD == null) {
             LOGGER.info("No se encontro el item para actualizar");
             return ResponseEntity.notFound().build();

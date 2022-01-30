@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ItemDetalleServiceImpl extends CrudGenericServiceImpl<ItemDetalle, Integer> implements IItemDetalleService {
 
@@ -23,5 +25,10 @@ public class ItemDetalleServiceImpl extends CrudGenericServiceImpl<ItemDetalle, 
     @Override
     public Page<ItemDetalle> listarPageable(Pageable pageable) {
         return repo.findAll(pageable);
+    }
+
+    @Override
+    public List<ItemDetalle> buscarPorNombre(String nombre) {
+        return repo.buscarPorNombre(nombre);
     }
 }
