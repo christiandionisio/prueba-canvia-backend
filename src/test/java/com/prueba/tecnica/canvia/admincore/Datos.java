@@ -1,6 +1,7 @@
 package com.prueba.tecnica.canvia.admincore;
 
 import com.prueba.tecnica.canvia.admincore.models.Cliente;
+import com.prueba.tecnica.canvia.admincore.models.ItemDetalle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,37 @@ public class Datos {
         cliente1.setDni("12345678");
 
         return cliente1;
+    }
+
+    public static List<ItemDetalle> getItemList() {
+
+        ItemDetalle item1 = new ItemDetalle();
+        item1.setIdItem(1);
+        item1.setNombre("Macbook");
+        item1.setTipo("laptop");
+        item1.setPrecio(3500.99);
+
+        ItemDetalle item2 = new ItemDetalle();
+        item2.setIdItem(2);
+        item2.setNombre("Mando Xbox");
+        item2.setTipo("laptop");
+        item2.setPrecio(200.99);
+
+        List<ItemDetalle> itemDetalleList = new ArrayList<>();
+        itemDetalleList.add(item1);
+        itemDetalleList.add(item2);
+        return itemDetalleList;
+    }
+
+    public static ItemDetalle getItem() {
+
+        ItemDetalle item1 = new ItemDetalle();
+        item1.setIdItem(1);
+        item1.setNombre("Macbook");
+        item1.setTipo("laptop");
+        item1.setPrecio(3500.99);
+
+        return item1;
     }
 
 }
